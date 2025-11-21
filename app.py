@@ -10,7 +10,7 @@ import os
 
 # Seitenkonfiguration
 st.set_page_config(
-    page_title="COBOL-Tutor",
+    page_title="Ernsts COBOL-Tutor",
     page_icon="💻",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -67,7 +67,7 @@ def initialize_cobol():
     return True
 
 def main():
-    st.title("💻 COBOL-Tutor")
+    st.title("💻 Ernsts COBOL-Tutor")
     st.markdown("*Lerne COBOL interaktiv mit KI-Unterstützung* 🆓")
     
     with st.sidebar:
@@ -108,6 +108,7 @@ def main():
         st.markdown("""
         - Stelle Fragen an den KI-Tutor
         - Probiere den Code aus
+        - **ACCEPT funktioniert!** Eingabefeld erscheint automatisch
         - Fehler sind Lernchancen!
         - Nutze die Hinweis-Funktion
         """)
@@ -152,12 +153,27 @@ def main():
             with col2:
                 st.markdown("**Aktionen:**")
                 
+                # Prüfe ob ACCEPT im Code vorkommt
+                executor = CobolExecutor()
+                has_accept = executor.has_accept_statements(user_code) if user_code.strip() else False
+                
+                # Wenn ACCEPT, zeige Eingabefeld
+                user_input = None
+                if has_accept:
+                    st.info("💡 Dein Code verwendet ACCEPT - Gib Eingaben ein:")
+                    user_input = st.text_area(
+                        "Eingaben (eine pro Zeile):",
+                        height=100,
+                        key='accept_input',
+                        help="Jede Zeile = eine ACCEPT-Eingabe"
+                    )
+                
                 if st.button("▶️ Code ausführen", type="primary"):
                     if user_code.strip():
                         if initialize_cobol():
                             executor = CobolExecutor()
                             with st.spinner("Kompiliere und führe aus..."):
-                                result = executor.execute_cobol(user_code)
+                                result = executor.execute_cobol(user_code, user_input)
                                 
                                 if result['success']:
                                     st.markdown('<div class="success-box">✅ Erfolgreich ausgeführt!</div>', 
@@ -217,12 +233,26 @@ def main():
                     key='exercise_code'
                 )
                 
+                # Prüfe auf ACCEPT in der Übung
+                executor_check = CobolExecutor()
+                has_accept_ex = executor_check.has_accept_statements(exercise_code) if exercise_code.strip() else False
+                
+                user_input_ex = None
+                if has_accept_ex:
+                    st.info("💡 Dein Code verwendet ACCEPT - Gib Eingaben ein:")
+                    user_input_ex = st.text_area(
+                        "Eingaben (eine pro Zeile):",
+                        height=100,
+                        key='accept_input_exercise',
+                        help="Jede Zeile = eine ACCEPT-Eingabe"
+                    )
+                
                 if st.button("✅ Lösung prüfen", type="primary"):
                     if exercise_code.strip():
                         if initialize_cobol():
                             executor = CobolExecutor()
                             with st.spinner("Prüfe deine Lösung..."):
-                                result = executor.execute_cobol(exercise_code)
+                                result = executor.execute_cobol(exercise_code, user_input_ex)
                                 
                                 tutor = CobolTutor()
                                 feedback = tutor.get_response(
