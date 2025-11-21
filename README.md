@@ -1,6 +1,34 @@
-# COBOL-Tutor - FINALE LÖSUNG ✅
+# 💻 Ernsts COBOL-Tutor - FINALE LÖSUNG ✅
 
-## 🎉 Problem gelöst!
+## 🎉 Neue Features!
+
+### ✨ Was ist neu?
+1. **Personalisierter Titel**: "Ernsts COBOL-Tutor" 👤
+2. **ACCEPT funktioniert!** 🎹 Benutzereingaben sind jetzt möglich!
+3. **Automatische Erkennung**: Eingabefeld erscheint automatisch bei ACCEPT
+
+### 🎹 ACCEPT-Beispiel:
+```cobol
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GRUSS.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NAME PIC X(20).
+
+PROCEDURE DIVISION.
+    DISPLAY "Wie heisst du?".
+    ACCEPT NAME.
+    DISPLAY "Hallo " NAME "!".
+    STOP RUN.
+```
+→ Eingabefeld erscheint automatisch!  
+→ Gib "Ernst" ein  
+→ Ausgabe: "Hallo Ernst!"
+
+Siehe [ACCEPT_BEISPIELE.txt](ACCEPT_BEISPIELE.txt) für mehr Beispiele!
+
+---
 
 **Die Einrückungen sind jetzt egal!** 
 
