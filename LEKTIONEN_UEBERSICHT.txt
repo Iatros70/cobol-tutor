@@ -1,0 +1,292 @@
+================================================================================
+                    COBOL-TUTOR - LEKTIONEN-ÜBERSICHT
+================================================================================
+
+🎯 Von den Grundlagen zum vollständigen Lotto-Generator in 15 Schritten!
+
+================================================================================
+                            GRUNDLAGEN (1-5)
+================================================================================
+
+📘 Lektion 1: COBOL Basics - Struktur und DISPLAY
+   ├─ Konzept: 4 Divisionen, DISPLAY-Anweisung
+   ├─ Beispiel: Hello World
+   └─ Übung: Eigenen Namen anzeigen
+
+📗 Lektion 2: Variablen und Datentypen
+   ├─ Konzept: WORKING-STORAGE, PIC-Klausel
+   ├─ Beispiel: NAME, ALTER, GEHALT
+   └─ Übung: Stadt-Informationen
+
+📙 Lektion 3: Berechnungen und Arithmetik
+   ├─ Konzept: ADD, SUBTRACT, MULTIPLY, DIVIDE, COMPUTE
+   ├─ Beispiel: Addition und Multiplikation
+   └─ Übung: Rechteck-Fläche berechnen
+
+📕 Lektion 4: IF-Bedingungen
+   ├─ Konzept: IF-THEN-ELSE, Vergleiche
+   ├─ Beispiel: Alterscheck (volljährig?)
+   └─ Übung: Temperatur-Klassifikation
+
+📔 Lektion 5: Schleifen (PERFORM)
+   ├─ Konzept: PERFORM VARYING, PERFORM UNTIL
+   ├─ Beispiel: Zahlen 1-5 ausgeben
+   └─ Übung: Kleines 1x1 für die 7
+
+================================================================================
+                        FORTGESCHRITTEN (6-11)
+================================================================================
+
+🔷 Lektion 6: Benutzereingabe mit ACCEPT
+   ├─ Quelle: 03_EINGABE.cob
+   ├─ Konzept: ACCEPT-Anweisung, interaktive Programme
+   ├─ Beispiel: Name und Zahl eingeben
+   └─ Übung: Summe zweier Zahlen
+
+🔶 Lektion 7: Arrays mit OCCURS
+   ├─ Quelle: 06_ARRAYS.cob
+   ├─ Konzept: OCCURS, Array-Zugriff, Index
+   ├─ Beispiel: 5 Zahlen speichern und ausgeben
+   └─ Übung: Durchschnitt von 4 Zahlen
+
+🔵 Lektion 8: Zufallszahlen generieren
+   ├─ Quelle: 07_ZUFALL.cob
+   ├─ Konzept: FUNCTION RANDOM, Bereichsumrechnung
+   ├─ Beispiel: 10 Zufallszahlen 1-49
+   └─ Übung: Würfel-Simulator (1-6)
+
+🟢 Lektion 9: Duplikate erkennen
+   ├─ Quelle: 08_DUPLIKATE.cob
+   ├─ Konzept: Verschachtelte Schleifen, Vergleiche
+   ├─ Beispiel: 6 Zahlen auf Duplikate prüfen
+   └─ Übung: Suche nach der Zahl 42
+
+🟡 Lektion 10: Bubble-Sort Sortierung
+   ├─ Quelle: 09_SORTIEREN.cob
+   ├─ Konzept: Sortieralgorithmus, Tauschen
+   ├─ Beispiel: 6 Zahlen aufsteigend sortieren
+   └─ Übung: 4 Zahlen absteigend sortieren
+
+🟠 Lektion 11: Strukturierte Programmierung
+   ├─ Konzept: Paragraphen, PERFORM paragraph-name
+   ├─ Beispiel: Haupt- und Hilfs-Paragraphen
+   └─ Übung: Menü mit mehreren Optionen
+
+================================================================================
+                      LOTTO-PROJEKT (12-15) 🎰
+================================================================================
+
+🎲 Lektion 12: Einfacher Lotto-Generator
+   ├─ Level: Anfänger-Projekt
+   ├─ Features: 
+   │   ✓ 6 Zufallszahlen 1-49 generieren
+   │   ✓ Einfache Ausgabe
+   │   ✗ Keine Duplikat-Prüfung
+   │   ✗ Nicht sortiert
+   └─ Übung: Eurojackpot (5 aus 50)
+
+🎲🎲 Lektion 13: Lotto ohne Duplikate
+   ├─ Level: Fortgeschritten
+   ├─ Features:
+   │   ✓ 6 Zufallszahlen 1-49
+   │   ✓ Duplikat-Prüfung mit Paragraph
+   │   ✓ PERFORM UNTIL für Generierung
+   │   ✗ Nicht sortiert
+   └─ Übung: Versuche zählen
+
+🎲🎲🎲 Lektion 14: Lotto mit Sortierung
+   ├─ Level: Fortgeschritten+
+   ├─ Quelle: Kombination aus 10_LOTTO.cob
+   ├─ Features:
+   │   ✓ 6 einzigartige Zahlen
+   │   ✓ Duplikat-Prüfung
+   │   ✓ Bubble-Sort Sortierung
+   │   ✓ Strukturierte Paragraphen
+   └─ Übung: Superzahl hinzufügen
+
+🎲🎲🎲🎲 Lektion 15: Vollständiger Lotto-Generator
+   ├─ Level: Meisterwerk! 🏆
+   ├─ Quelle: 10_LOTTO.cob (vollständig)
+   ├─ Features:
+   │   ✓ 6 aus 49 Generator
+   │   ✓ Duplikat-Prüfung
+   │   ✓ Sortierung
+   │   ✓ Schönes Layout
+   │   ✓ Wiederholungs-Option
+   │   ✓ Strukturierte Paragraphen
+   └─ Übung: Statistik über mehrere Durchläufe
+
+================================================================================
+                        KONZEPT-PROGRESSION
+================================================================================
+
+                LEKTION 1-5: GRUNDLAGEN
+                        ↓
+                LEKTION 6-8: EINGABE & DATEN
+                (ACCEPT, Arrays, Zufall)
+                        ↓
+                LEKTION 9-11: ALGORITHMEN
+                (Duplikate, Sortierung, Struktur)
+                        ↓
+                LEKTION 12: BASIS-GENERATOR
+                (Nur Zufall)
+                        ↓
+                LEKTION 13: + DUPLIKAT-PRÜFUNG
+                (Einzigartige Zahlen)
+                        ↓
+                LEKTION 14: + SORTIERUNG
+                (Geordnete Ausgabe)
+                        ↓
+                LEKTION 15: VOLLVERSION
+                (Professional)
+
+================================================================================
+                        FEATURE-MATRIX
+================================================================================
+
+Feature                 │ L12 │ L13 │ L14 │ L15 │
+────────────────────────┼─────┼─────┼─────┼─────┤
+Zufallszahlen 1-49      │  ✓  │  ✓  │  ✓  │  ✓  │
+6 Zahlen                │  ✓  │  ✓  │  ✓  │  ✓  │
+Duplikat-Prüfung        │  ✗  │  ✓  │  ✓  │  ✓  │
+Sortierung              │  ✗  │  ✗  │  ✓  │  ✓  │
+Paragraphen-Struktur    │  ✗  │  ✓  │  ✓  │  ✓  │
+Wiederholungs-Option    │  ✗  │  ✗  │  ✗  │  ✓  │
+Schönes Layout          │  ✗  │  ✗  │  ✗  │  ✓  │
+────────────────────────┴─────┴─────┴─────┴─────┘
+
+================================================================================
+                        LEARNING OUTCOMES
+================================================================================
+
+Nach Abschluss aller 15 Lektionen kannst du:
+
+✅ COBOL-Grundlagen
+   • 4 Divisionen verstehen und anwenden
+   • Variablen definieren (PIC-Klausel)
+   • Datentypen unterscheiden (X, 9, A, V)
+
+✅ Kontrollstrukturen
+   • IF-THEN-ELSE Bedingungen schreiben
+   • PERFORM-Schleifen nutzen
+   • Verschachtelte Strukturen aufbauen
+
+✅ Datenverarbeitung
+   • Benutzereingaben verarbeiten (ACCEPT)
+   • Arrays/Tabellen verwenden (OCCURS)
+   • Mit Indizes arbeiten
+
+✅ Algorithmen
+   • Zufallszahlen generieren
+   • Duplikate erkennen und vermeiden
+   • Sortieralgorithmen implementieren
+
+✅ Programmstruktur
+   • Paragraphen definieren und aufrufen
+   • Code modular organisieren
+   • Best Practices anwenden
+
+✅ Komplette Anwendung
+   • Alle Konzepte kombinieren
+   • Robuste Programme schreiben
+   • Professionelle Ausgabe gestalten
+
+================================================================================
+                        ÜBUNGSAUFGABEN
+================================================================================
+
+Leichte Aufgaben (L1-5):
+• Namen ausgeben
+• Variablen verwenden
+• Flächen berechnen
+• Temperatur klassifizieren
+• 1x1 erstellen
+
+Mittlere Aufgaben (L6-11):
+• Summe berechnen (interaktiv)
+• Durchschnitt von Arrays
+• Würfel-Simulator
+• Zahl in Array suchen
+• Absteigend sortieren
+• Menü erstellen
+
+Schwere Aufgaben (L12-15):
+• Eurojackpot-Generator
+• Versuche zählen
+• Superzahl hinzufügen
+• Statistik über Durchläufe
+
+================================================================================
+                        ZEITPLAN
+================================================================================
+
+WOCHE 1: Grundlagen (Lektionen 1-5)
+├─ Tag 1-2: Lektion 1-2 (Basics, Variablen)
+├─ Tag 3-4: Lektion 3-4 (Arithmetik, IF)
+└─ Tag 5: Lektion 5 (Schleifen)
+
+WOCHE 2: Eingabe & Daten (Lektionen 6-8)
+├─ Tag 1-2: Lektion 6 (ACCEPT)
+├─ Tag 3-4: Lektion 7 (Arrays)
+└─ Tag 5: Lektion 8 (Zufall)
+
+WOCHE 3: Algorithmen (Lektionen 9-11)
+├─ Tag 1-2: Lektion 9 (Duplikate)
+├─ Tag 3-4: Lektion 10 (Sortierung)
+└─ Tag 5: Lektion 11 (Struktur)
+
+WOCHE 4: Lotto-Projekt (Lektionen 12-15)
+├─ Tag 1: Lektion 12 (Basis)
+├─ Tag 2: Lektion 13 (Duplikate)
+├─ Tag 3: Lektion 14 (Sortierung)
+└─ Tag 4-5: Lektion 15 (Vollversion + Experimente)
+
+================================================================================
+                        TIPPS FÜR LERNENDE
+================================================================================
+
+💡 Allgemein:
+   • Nicht überspringen - jede Lektion baut auf der vorherigen auf
+   • Viel experimentieren - Code ändern und schauen was passiert
+   • Fehler sind OK - sie gehören zum Lernen
+   • KI-Tutor nutzen - keine Frage ist zu dumm
+
+💡 Code-Editor:
+   • Erst denken, dann tippen
+   • Kleine Schritte machen
+   • Oft testen
+   • Kommentare lesen
+
+💡 Übungen:
+   • Erst selbst versuchen
+   • Bei Problemen: Hinweis nutzen
+   • Lösung erst als letztes anschauen
+   • Eigene Varianten erstellen
+
+💡 KI-Tutor:
+   • Konkrete Fragen stellen
+   • Code-Snippets zeigen
+   • Um Erklärungen bitten
+   • Nach Beispielen fragen
+
+================================================================================
+                        ERFOLGSMETRIKEN
+================================================================================
+
+Nach jeder Lektion solltest du:
+✓ Das Konzept in eigenen Worten erklären können
+✓ Das Beispiel verstehen
+✓ Die Übung ohne Hilfe lösen können
+✓ Eigene Varianten erstellen können
+
+Nach Lektion 15 solltest du:
+🏆 Einen vollständigen Lotto-Generator schreiben können
+🏆 Alle COBOL-Grundlagen beherrschen
+🏆 Komplexe Programme strukturieren können
+🏆 Eigene COBOL-Projekte umsetzen können
+
+================================================================================
+
+                    VIEL ERFOLG BEIM LERNEN! 🚀
+
+================================================================================
