@@ -30,6 +30,7 @@ class CobolExecutor:
                 with open(source_file, 'w') as f:
                     f.write(code)
                 
+                # Free-Format: Keine festen Spalten-Regeln!
                 compile_result = subprocess.run(
                     ['cobc', '-x', '-free', source_file, '-o', executable],
                     capture_output=True,
