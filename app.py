@@ -136,6 +136,8 @@ def main():
         with tab2:
             st.subheader("Probiere es selbst:")
             
+            st.info("💡 **Tipp:** Einrückungen sind im Free-Format egal! Du kannst den Code einfach kopieren und ohne Anpassung ausführen.")
+            
             col1, col2 = st.columns([3, 1])
             
             with col1:
