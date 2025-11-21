@@ -1,0 +1,311 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║          COBOL ACCEPT - BEISPIEL-SAMMLUNG ZUM AUSPROBIEREN              ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════════════════
+ 📋 BEISPIEL 1: EINFACHER GRUSS
+═══════════════════════════════════════════════════════════════════════════
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GRUSS.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NAME PIC X(20).
+
+PROCEDURE DIVISION.
+    DISPLAY "Wie heisst du?".
+    ACCEPT NAME.
+    DISPLAY "Hallo " NAME "! Willkommen zum COBOL-Tutor!".
+    STOP RUN.
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ EINGABE (im Eingabefeld):                                               │
+│ Ernst                                                                    │
+│                                                                          │
+│ AUSGABE:                                                                 │
+│ Wie heisst du?                                                          │
+│ Hallo Ernst! Willkommen zum COBOL-Tutor!                               │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+ 🔢 BEISPIEL 2: TASCHENRECHNER (ADDITION)
+═══════════════════════════════════════════════════════════════════════════
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. RECHNER.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ZAHL1 PIC 99.
+01 ZAHL2 PIC 99.
+01 SUMME PIC 999.
+
+PROCEDURE DIVISION.
+    DISPLAY "Gib die erste Zahl ein:".
+    ACCEPT ZAHL1.
+    
+    DISPLAY "Gib die zweite Zahl ein:".
+    ACCEPT ZAHL2.
+    
+    COMPUTE SUMME = ZAHL1 + ZAHL2.
+    
+    DISPLAY " ".
+    DISPLAY ZAHL1 " + " ZAHL2 " = " SUMME.
+    STOP RUN.
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ EINGABE (im Eingabefeld):                                               │
+│ 42                                                                       │
+│ 27                                                                       │
+│                                                                          │
+│ AUSGABE:                                                                 │
+│ Gib die erste Zahl ein:                                                 │
+│ Gib die zweite Zahl ein:                                                │
+│                                                                          │
+│ 42 + 27 = 69                                                            │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+ 🎂 BEISPIEL 3: ALTERSRECHNER
+═══════════════════════════════════════════════════════════════════════════
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ALTERSRECHNER.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GEBURTSJAHR PIC 9(4).
+01 AKTUELLES-JAHR PIC 9(4) VALUE 2025.
+01 ALTER PIC 999.
+
+PROCEDURE DIVISION.
+    DISPLAY "In welchem Jahr bist du geboren?".
+    ACCEPT GEBURTSJAHR.
+    
+    COMPUTE ALTER = AKTUELLES-JAHR - GEBURTSJAHR.
+    
+    DISPLAY "Du bist ungefaehr " ALTER " Jahre alt.".
+    STOP RUN.
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ EINGABE (im Eingabefeld):                                               │
+│ 1983                                                                     │
+│                                                                          │
+│ AUSGABE:                                                                 │
+│ In welchem Jahr bist du geboren?                                        │
+│ Du bist ungefaehr 42 Jahre alt.                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+ 🎯 BEISPIEL 4: VOLLJAEHRIGKEITSPRUEFER
+═══════════════════════════════════════════════════════════════════════════
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ALTERSCHECK.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NAME PIC X(20).
+01 ALTER PIC 99.
+
+PROCEDURE DIVISION.
+    DISPLAY "Wie heisst du?".
+    ACCEPT NAME.
+    
+    DISPLAY "Wie alt bist du?".
+    ACCEPT ALTER.
+    
+    DISPLAY " ".
+    IF ALTER >= 18
+        DISPLAY NAME ", du bist volljaehrig!"
+    ELSE
+        DISPLAY NAME ", du bist noch minderjaehrig."
+    END-IF.
+    
+    STOP RUN.
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ EINGABE (im Eingabefeld):                                               │
+│ Ernst                                                                    │
+│ 42                                                                       │
+│                                                                          │
+│ AUSGABE:                                                                 │
+│ Wie heisst du?                                                          │
+│ Wie alt bist du?                                                        │
+│                                                                          │
+│ Ernst, du bist volljaehrig!                                             │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+ 🏪 BEISPIEL 5: PREISRECHNER MIT MEHRWERTSTEUER
+═══════════════════════════════════════════════════════════════════════════
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PREISRECHNER.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NETTO PIC 9(5)V99.
+01 MWST PIC 9(5)V99.
+01 BRUTTO PIC 9(6)V99.
+
+PROCEDURE DIVISION.
+    DISPLAY "Netto-Preis (in Euro):".
+    ACCEPT NETTO.
+    
+    COMPUTE MWST = NETTO * 0.19.
+    COMPUTE BRUTTO = NETTO + MWST.
+    
+    DISPLAY " ".
+    DISPLAY "Netto:  " NETTO " Euro".
+    DISPLAY "MwSt.:  " MWST " Euro".
+    DISPLAY "Brutto: " BRUTTO " Euro".
+    STOP RUN.
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ EINGABE (im Eingabefeld):                                               │
+│ 100.00                                                                   │
+│                                                                          │
+│ AUSGABE:                                                                 │
+│ Netto-Preis (in Euro):                                                  │
+│                                                                          │
+│ Netto:  100.00 Euro                                                     │
+│ MwSt.:  19.00 Euro                                                      │
+│ Brutto: 119.00 Euro                                                     │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+ 🎓 BEISPIEL 6: NOTEN-BERECHNER
+═══════════════════════════════════════════════════════════════════════════
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. NOTENRECHNER.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NOTE1 PIC 99.
+01 NOTE2 PIC 99.
+01 NOTE3 PIC 99.
+01 DURCHSCHNITT PIC 99.
+
+PROCEDURE DIVISION.
+    DISPLAY "Gib 3 Noten ein (10-100):".
+    DISPLAY "Note 1:".
+    ACCEPT NOTE1.
+    DISPLAY "Note 2:".
+    ACCEPT NOTE2.
+    DISPLAY "Note 3:".
+    ACCEPT NOTE3.
+    
+    COMPUTE DURCHSCHNITT = (NOTE1 + NOTE2 + NOTE3) / 3.
+    
+    DISPLAY " ".
+    DISPLAY "Durchschnitt: " DURCHSCHNITT.
+    
+    IF DURCHSCHNITT >= 90
+        DISPLAY "Sehr gut!"
+    ELSE IF DURCHSCHNITT >= 75
+        DISPLAY "Gut!"
+    ELSE IF DURCHSCHNITT >= 60
+        DISPLAY "Befriedigend"
+    ELSE
+        DISPLAY "Ungenuegend"
+    END-IF.
+    
+    STOP RUN.
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ EINGABE (im Eingabefeld):                                               │
+│ 85                                                                       │
+│ 92                                                                       │
+│ 78                                                                       │
+│                                                                          │
+│ AUSGABE:                                                                 │
+│ Gib 3 Noten ein (10-100):                                               │
+│ Note 1:                                                                  │
+│ Note 2:                                                                  │
+│ Note 3:                                                                  │
+│                                                                          │
+│ Durchschnitt: 85                                                        │
+│ Gut!                                                                     │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+ 📏 BEISPIEL 7: FLAECHEN-RECHNER (RECHTECK)
+═══════════════════════════════════════════════════════════════════════════
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. FLAECHENRECHNER.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LAENGE PIC 999.
+01 BREITE PIC 999.
+01 FLAECHE PIC 9(6).
+01 UMFANG PIC 9(4).
+
+PROCEDURE DIVISION.
+    DISPLAY "Rechteck Flaechenrechner".
+    DISPLAY "========================".
+    DISPLAY " ".
+    DISPLAY "Laenge (in cm):".
+    ACCEPT LAENGE.
+    DISPLAY "Breite (in cm):".
+    ACCEPT BREITE.
+    
+    COMPUTE FLAECHE = LAENGE * BREITE.
+    COMPUTE UMFANG = (LAENGE + BREITE) * 2.
+    
+    DISPLAY " ".
+    DISPLAY "Ergebnisse:".
+    DISPLAY "Flaeche: " FLAECHE " cm²".
+    DISPLAY "Umfang:  " UMFANG " cm".
+    STOP RUN.
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ EINGABE (im Eingabefeld):                                               │
+│ 25                                                                       │
+│ 15                                                                       │
+│                                                                          │
+│ AUSGABE:                                                                 │
+│ Rechteck Flaechenrechner                                                │
+│ ========================                                                │
+│                                                                          │
+│ Laenge (in cm):                                                         │
+│ Breite (in cm):                                                         │
+│                                                                          │
+│ Ergebnisse:                                                             │
+│ Flaeche: 375 cm²                                                        │
+│ Umfang:  80 cm                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                            WICHTIGE TIPPS                                ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+1. 📝 EINGABEN: Eine Zeile pro ACCEPT
+   
+2. 🔢 ZAHLEN: Einfach als Text eingeben (z.B. "42", nicht "zweiundvierzig")
+   
+3. 📋 REIHENFOLGE: Eingaben werden in der Reihenfolge verarbeitet,
+                   wie die ACCEPT-Befehle im Code stehen
+   
+4. ✨ AUTOMATISCH: Eingabefeld erscheint automatisch, wenn ACCEPT erkannt wird
+
+5. 🎯 ÜBERALL: Funktioniert im Code-Editor UND bei den Übungen
+
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                             VIEL SPASS!                                  ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+Probiere die Beispiele aus und erstelle eigene interaktive Programme! 🚀
