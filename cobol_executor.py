@@ -9,6 +9,18 @@ class CobolExecutor:
     def __init__(self):
         self.check_cobol_installed()
     
+    def has_accept_statements(self, code):
+        """Prüft, ob der Code ACCEPT-Anweisungen enthält"""
+        # Entferne Kommentare und prüfe auf ACCEPT
+        lines = code.upper().split('\n')
+        for line in lines:
+            # Überspringe Kommentarzeilen
+            if line.strip().startswith('*'):
+                continue
+            if 'ACCEPT' in line and not line.strip().startswith('*'):
+                return True
+        return False
+    
     def check_cobol_installed(self):
         try:
             result = subprocess.run(['cobc', '--version'], 
@@ -21,7 +33,14 @@ class CobolExecutor:
         except Exception:
             return False
     
-    def execute_cobol(self, code):
+    def execute_cobol(self, code, user_input=None):
+        """
+        Führt COBOL-Code aus.
+        
+        Args:
+            code: COBOL-Quellcode
+            user_input: Optional - String mit Eingaben für ACCEPT (getrennt durch Zeilenumbrüche)
+        """
         with tempfile.TemporaryDirectory() as tmpdir:
             source_file = os.path.join(tmpdir, 'program.cob')
             executable = os.path.join(tmpdir, 'program')
@@ -46,10 +65,13 @@ class CobolExecutor:
                         'stage': 'compilation'
                     }
                 
+                # Führe das kompilierte Programm aus
+                # Wenn user_input vorhanden, als stdin übergeben (für ACCEPT)
                 run_result = subprocess.run(
                     [executable],
                     capture_output=True,
                     text=True,
+                    input=user_input if user_input else None,
                     timeout=5
                 )
                 
