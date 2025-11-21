@@ -31,7 +31,7 @@ class CobolExecutor:
                     f.write(code)
                 
                 compile_result = subprocess.run(
-                    ['cobc', '-x', source_file, '-o', executable],
+                    ['cobc', '-x', '-free', source_file, '-o', executable],
                     capture_output=True,
                     text=True,
                     timeout=10
